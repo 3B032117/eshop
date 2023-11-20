@@ -41,6 +41,16 @@ Route::get('/', function () {
 // DELETE  Products/{Product}       Products.destroy
 // 作用: 刪除單一筆ID為 {Product} 的資料
 //
+/*
 Route::resource('Products', ProductController::class)->only([
 	'index','show','store','update','destroy'
 ]);
+*/
+
+Route::get('Products', [ProductController::class, 'index']);
+Route::get('Products/{Product}', [ProductController::class, 'show']);
+Route::get('Products/create', [ProductController::class, 'create']);
+Route::post('Products', [ProductController::class, 'store']);
+Route::get('Products/{Product}/edit', [ProductController::class, 'edit']);
+Route::patch('Products/{Product}', [ProductController::class, 'update']);
+Route::delete('Products/{Product}', [ProductController::class, 'destroy']);

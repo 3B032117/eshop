@@ -12,12 +12,14 @@
                     <table>
 							<tr>
 								<td>訂單編號</td>
-								<td>訂單建立日期</td>
+								<td>產品名稱</td>
+								<td>明細建立日期</td>
 							</tr>
-						@foreach ($orders as $order)
+						@foreach ($order_items as $order_item)
 							<tr>
-								<td><a href="{{route('orders.show',$order->id)}}">{{ $order->id }}</a></td>
-								<td><a href="{{route('orders.show',$order->id)}}">{{ $order->created_at }}</a></td>
+								<td>{{ $order_item->order_id }}</td>
+								<td>{{ $order_item->product()->first()->name }}</td>
+								<td>{{ $order_item->created_at }}</td>
 							</tr>
 						@endforeach
                     </table>

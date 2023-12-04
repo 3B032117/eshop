@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\CartItem;
+use App\Models\Product;
 use App\Http\Requests\StoreCartItemRequest;
 use App\Http\Requests\UpdateCartItemRequest;
 
@@ -13,7 +15,8 @@ class CartItemController extends Controller
      */
     public function index()
     {
-        //
+		$data = Auth::user()->cartItems()->get();
+        return view('cart_items.index',['cart_items'=> $data]);
     }
 
     /**

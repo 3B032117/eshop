@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,8 @@ Route::patch('Products/{Product}', [ProductController::class, 'update']);
 Route::delete('Products/{Product}', [ProductController::class, 'destroy']);
 
 Route::resource('cart_items', CartItemController::class)->middleware(['auth', 'verified']);
+
+Route::resource('orders', OrderController::class)->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

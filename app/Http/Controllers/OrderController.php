@@ -39,6 +39,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+		$this->authorize('view', $order);
+		
 		$data = $order->orderItems()->get();
         return view('orders.show',['order_items'=> $data]);
     }

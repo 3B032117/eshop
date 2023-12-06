@@ -22,6 +22,7 @@ class OrderPolicy
     public function view(User $user, Order $order): bool
     {
         //
+		return $order->user()->is($user);
     }
 
     /**

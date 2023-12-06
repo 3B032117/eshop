@@ -15,7 +15,7 @@ class CartItemController extends Controller
      */
     public function index()
     {
-		$data = Auth::user()->cartItems()->get();
+		$data = auth()->user()->cartItems()->get();
         return view('cart_items.index',['cart_items'=> $data]);
     }
 
